@@ -21,8 +21,9 @@ namespace LibraryBookApi.Controllers
 
         // GET: api/books
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<BookDto>>> GetAll()
+        public async Task<ActionResult> GetAll()
         {
+            _logger.LogInformation("Fetching all books from database.");
             var books = await _db.Books
                 .Include(b => b.BookAuthors).ThenInclude(ba => ba.Author)
                 .Select(b => new BookDto
@@ -39,7 +40,7 @@ namespace LibraryBookApi.Controllers
                     }).ToList()
                 })
                 .ToListAsync();
-
+            _logger.LogInformation("{Count} books retrieved.", books.Count);
             return Ok(books);
         }
 
