@@ -9,7 +9,7 @@ namespace LibraryBookApi.Models
         public int Id { get; set; }
 
         [Required, StringLength(200)]
-        public string Title { get; set; } = null!;
+        public string Title { get; set; } 
 
         public DateTime? PublicationDate { get; set; }
 

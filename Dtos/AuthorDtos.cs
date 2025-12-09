@@ -4,20 +4,24 @@ namespace LibraryBookApi.Dtos
 {
     public class CreateAuthorDto
     {
-        [Required, StringLength(100)]
-        public string FirstName { get; set; } = null!;
+        [Required(ErrorMessage = "FirstName is required")]
+        [StringLength(100)]
+        public string FirstName { get; set; }
 
-        [Required, StringLength(100)]
-        public string LastName { get; set; } = null!;
+        [Required(ErrorMessage = "LastName is required")]
+        [StringLength(100)]
+        public string LastName { get; set; }
     }
 
     public class UpdateAuthorDto
     {
-        [Required, StringLength(100)]
-        public string FirstName { get; set; } = null!;
+        [Required(ErrorMessage = "FirstName is required")]
+        [StringLength(100)]
+        public string FirstName { get; set; }
 
-        [Required, StringLength(100)]
-        public string LastName { get; set; } = null!;
+        [Required(ErrorMessage = "LastName is required")]
+        [StringLength(100)]
+        public string LastName { get; set; }
     }
 
     public class AuthorDto
